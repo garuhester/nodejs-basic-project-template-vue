@@ -1,0 +1,21 @@
+version: '3'
+services:
+    mongo:
+        container_name: mongo
+        image: mongo
+        volumes: 
+            - $PWD/mongo:/data/db
+        restart: always
+    mockmaker:
+        container_name: mockmaker
+        image: mockmaker:1.0.0
+        restart: always
+        depends_on:
+            - mongo
+        ports: 
+            - 8071:8071
+        environment: 
+            - MONGO_HOST=mongo
+        volumes: 
+            - $PWD/data/project_data = /usr/src/static/project_data
+            - $PWD/data/ExportApiFile = /usr/src/static/ExportApiFile

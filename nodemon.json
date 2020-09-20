@@ -1,0 +1,6 @@
+{
+    "ignore": [
+        "static/files/**"
+    ],
+    "ext": "js"
+}

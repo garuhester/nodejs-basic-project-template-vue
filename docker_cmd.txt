@@ -1,0 +1,11 @@
+docker build . -t hub.wewin.com.cn:9500/mockmaker:1.0.0
+docker push hub.wewin.com.cn:9500/mockmaker:1.0.0
+
+docker tag hub.wewin.com.cn:9500/mockmaker:1.0.0 hub.wewin.com.cn:9500/mockmaker:latest
+
+docker rmi -f 7c7d2401d4bb
+docker-compose up -d
+
+docker images
+
+docker ps

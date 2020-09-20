@@ -1,0 +1,713 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "后台API接口",
+        "version": "1.0",
+        "title": "MakeID-Boot 后台服务API接口文档",
+        "contact": {
+            "name": "品胜物联网发技术团队"
+        },
+        "license": {
+            "name": "The Apache License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "192.168.10.42:8080",
+    "basePath": "/makeid-boot",
+    "tags": [
+        {
+            "name": "用户登录",
+            "description": "Login Controller"
+        },
+        {
+            "name": "用户管理",
+            "description": "Sys User Controller"
+        }
+    ],
+    "paths": {
+        "/sys/login": {
+            "post": {
+                "tags": [
+                    "用户登录"
+                ],
+                "summary": "登录接口",
+                "operationId": "loginUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "sysLoginModel",
+                        "description": "sysLoginModel",
+                        "required": true,
+                        "schema": {
+                            "originalRef": "sysLoginModel",
+                            "$ref": "#/definitions/sysLoginModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "originalRef": "result«JSONObject»",
+                            "$ref": "#/definitions/result«JSONObject»"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/sys/randomImage/{key}": {
+            "get": {
+                "tags": [
+                    "用户登录"
+                ],
+                "summary": "获取验证码",
+                "operationId": "randomImageUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "key",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "originalRef": "result«string»",
+                            "$ref": "#/definitions/result«string»"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/sys/user/add": {
+            "post": {
+                "tags": [
+                    "用户管理"
+                ],
+                "summary": "添加",
+                "operationId": "addUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "sysUser",
+                        "description": "sysUser",
+                        "required": true,
+                        "schema": {
+                            "originalRef": "sysUserModel",
+                            "$ref": "#/definitions/sysUserModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "originalRef": "result«sysUserModel»",
+                            "$ref": "#/definitions/result«sysUserModel»"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/sys/user/delete": {
+            "delete": {
+                "tags": [
+                    "用户管理"
+                ],
+                "summary": "删除",
+                "operationId": "deleteUsingDELETE",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "originalRef": "result«object»",
+                            "$ref": "#/definitions/result«object»"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/sys/user/deleteBatch": {
+            "delete": {
+                "tags": [
+                    "用户管理"
+                ],
+                "summary": "批量删除",
+                "operationId": "deleteBatchUsingDELETE",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "description": "ids",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "originalRef": "result«object»",
+                            "$ref": "#/definitions/result«object»"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/sys/user/edit": {
+            "put": {
+                "tags": [
+                    "用户管理"
+                ],
+                "summary": "编辑",
+                "operationId": "editUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "sysUser",
+                        "description": "sysUser",
+                        "required": true,
+                        "schema": {
+                            "originalRef": "sysUserModel",
+                            "$ref": "#/definitions/sysUserModel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "originalRef": "result«sysUserModel»",
+                            "$ref": "#/definitions/result«sysUserModel»"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/sys/user/list": {
+            "get": {
+                "tags": [
+                    "用户管理"
+                ],
+                "summary": "查询列表分页",
+                "operationId": "queryPageListUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "birthday",
+                        "in": "query",
+                        "description": "生日",
+                        "required": false,
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "电子邮件",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pageNo",
+                        "in": "query",
+                        "description": "pageNo",
+                        "required": false,
+                        "type": "integer",
+                        "default": 1,
+                        "format": "int32"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "type": "integer",
+                        "default": 10,
+                        "format": "int32"
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "密码",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "phone",
+                        "in": "query",
+                        "description": "电话",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "realname",
+                        "in": "query",
+                        "description": "用户真实姓名",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "sex",
+                        "in": "query",
+                        "description": "性别",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "description": "用户名",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "originalRef": "result«IPage«sysUserModel»»",
+                            "$ref": "#/definitions/result«IPage«sysUserModel»»"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/sys/user/queryById": {
+            "get": {
+                "tags": [
+                    "用户管理"
+                ],
+                "summary": "根据ID查询",
+                "operationId": "queryByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "originalRef": "result«sysUserModel»",
+                            "$ref": "#/definitions/result«sysUserModel»"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "securityDefinitions": {
+        "X-Access-Token": {
+            "type": "apiKey",
+            "name": "X-Access-Token",
+            "in": "header"
+        }
+    },
+    "definitions": {
+        "IPage«sysUserModel»": {
+            "type": "object",
+            "properties": {
+                "current": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "pages": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "records": {
+                    "type": "array",
+                    "items": {
+                        "originalRef": "sysUserModel",
+                        "$ref": "#/definitions/sysUserModel"
+                    }
+                },
+                "searchCount": {
+                    "type": "boolean"
+                },
+                "size": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "IPage«sysUserModel»"
+        },
+        "JSONObject": {
+            "type": "object",
+            "title": "JSONObject",
+            "additionalProperties": {
+                "type": "object"
+            }
+        },
+        "result«IPage«sysUserModel»»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "返回代码"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "返回处理消息"
+                },
+                "result": {
+                    "description": "返回数据对象",
+                    "originalRef": "IPage«sysUserModel»",
+                    "$ref": "#/definitions/IPage«sysUserModel»"
+                },
+                "success": {
+                    "type": "boolean",
+                    "description": "成功标志"
+                },
+                "timestamp": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "时间戳"
+                }
+            },
+            "title": "result«IPage«sysUserModel»»",
+            "description": "接口返回对象"
+        },
+        "result«JSONObject»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "返回代码"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "返回处理消息"
+                },
+                "result": {
+                    "type": "object",
+                    "description": "返回数据对象",
+                    "additionalProperties": {
+                        "type": "object"
+                    }
+                },
+                "success": {
+                    "type": "boolean",
+                    "description": "成功标志"
+                },
+                "timestamp": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "时间戳"
+                }
+            },
+            "title": "result«JSONObject»",
+            "description": "接口返回对象"
+        },
+        "result«object»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "返回代码"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "返回处理消息"
+                },
+                "result": {
+                    "type": "object",
+                    "description": "返回数据对象"
+                },
+                "success": {
+                    "type": "boolean",
+                    "description": "成功标志"
+                },
+                "timestamp": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "时间戳"
+                }
+            },
+            "title": "result«object»",
+            "description": "接口返回对象"
+        },
+        "result«string»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "返回代码"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "返回处理消息"
+                },
+                "result": {
+                    "type": "string",
+                    "description": "返回数据对象"
+                },
+                "success": {
+                    "type": "boolean",
+                    "description": "成功标志"
+                },
+                "timestamp": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "时间戳"
+                }
+            },
+            "title": "result«string»",
+            "description": "接口返回对象"
+        },
+        "result«sysUserModel»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "返回代码"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "返回处理消息"
+                },
+                "result": {
+                    "description": "返回数据对象",
+                    "originalRef": "sysUserModel",
+                    "$ref": "#/definitions/sysUserModel"
+                },
+                "success": {
+                    "type": "boolean",
+                    "description": "成功标志"
+                },
+                "timestamp": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "时间戳"
+                }
+            },
+            "title": "result«sysUserModel»",
+            "description": "接口返回对象"
+        },
+        "sysLoginModel": {
+            "type": "object",
+            "required": [
+                "captcha",
+                "checkKey",
+                "password",
+                "username"
+            ],
+            "properties": {
+                "captcha": {
+                    "type": "string",
+                    "description": "验证码"
+                },
+                "checkKey": {
+                    "type": "string",
+                    "description": "验证码key"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "密码"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "账号"
+                }
+            },
+            "title": "sysLoginModel",
+            "description": "登录对象"
+        },
+        "sysUserModel": {
+            "type": "object",
+            "properties": {
+                "birthday": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "生日"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "电子邮件"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "id"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "密码"
+                },
+                "phone": {
+                    "type": "string",
+                    "description": "电话"
+                },
+                "realname": {
+                    "type": "string",
+                    "description": "用户真实姓名"
+                },
+                "sex": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "性别"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "用户名"
+                }
+            },
+            "title": "sysUserModel",
+            "description": "用户信息对象"
+        }
+    }
+}

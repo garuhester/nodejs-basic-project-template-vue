@@ -1,0 +1,271 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 1400px;
+}
+
+ul>li {
+    list-style: none;
+}
+
+.noselect {
+    -moz-user-select: none;
+    /*火狐*/
+    -webkit-user-select: none;
+    /*webkit浏览器*/
+    -ms-user-select: none;
+    /*IE10*/
+    /*早期浏览器*/
+    user-select: none;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    /*滚动条宽度*/
+    height: 10px;
+    /*滚动条高度*/
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+/*定义滑块 内阴影+圆角*/
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #d8d4d4;
+}
+
+/* ------------------------------------------- */
+
+[v-cloak] {
+    display: none;
+}
+
+#app {
+    height: 100%;
+}
+
+.el-container {
+    height: 100%;
+}
+
+.el-header {
+    background-color: rgb(84, 92, 100);
+    color: #333;
+    text-align: center;
+    height: 60px;
+    position: relative;
+}
+
+.el-main {
+    /* background-color: #cacaca; */
+    color: #333;
+    text-align: center;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+}
+
+.el-menu.el-menu--horizontal {
+    border: none;
+}
+
+.el-menu--horizontal>.el-submenu .el-submenu__title {
+    border: none;
+}
+
+.el-header .el-submenu__title i {
+    color: #fff;
+}
+
+.el-header .logo {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.el-header .logo .title {
+    float: left;
+    font-size: 23px;
+    line-height: 60px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.el-header .logo .menu {
+    float: left;
+    margin-left: 30px;
+}
+
+.el-header .user {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.el-header .user .notify {
+    float: right;
+    color: #fff;
+    font-size: 30px;
+    margin-top: 7px;
+    margin-right: 10px;
+}
+
+.el-header .user .notify i {
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.el-header .user .notify i:hover {
+    background: rgba(67, 74, 80);
+}
+
+.el-header .user .userinfo {
+    float: right;
+}
+
+.el-table__header thead tr th {
+    background: #f7f9fb!important;
+    color: #5a5a5a;
+}
+
+/*******************************pxt*****************************************/
+
+/* 清除浮动 */
+
+.clearfix:before, .clearfix:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.tl {
+    text-align: left;
+}
+
+.tc {
+    text-align: center;
+}
+
+.tr {
+    text-align: right;
+}
+
+/* 封装flex */
+
+.u-f, .u-f-ac, .u-f-ajc, .u-f-jsb, .u-f-jsa {
+    display: flex;
+}
+
+.u-f-ac, .u-f-ajc, .u-f-jsb, .u-f-jsa {
+    align-items: center;
+}
+
+/* 水平居中 垂直居中*/
+
+.u-f-ajc {
+    justify-content: center;
+}
+
+/* 水平居两边 垂直居中*/
+
+.u-f-jsb {
+    justify-content: space-between;
+}
+
+/* 水平平均放置 垂直居中*/
+
+.u-f-jsa {
+    justify-content: space-around;
+}
+
+/* 位置居中 */
+
+.pos-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+/* 浏览器侧面导航栏的封装  在会出现滚动条的地方添加scroll-style*/
+
+.scroll-style::-webkit-scrollbar {
+    width: 3px;
+    background-color: transparent;
+}
+
+.scroll-style::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, .3);
+    background-color: #e9e8e8;
+}
+
+.scroll-style::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px transparent;
+    -webkit-box-shadow: inset 0 0 6px transparent;
+    border-radius: 2px;
+    background-color: transparent;
+}
+
+/* 文字换行 中英文都可以*/
+
+.txt-linebreak {
+    white-space: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+/* 文字单行省略  文字过多时使用... */
+
+.txt-cut {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* 文字多行省略 需要放在P标签中 并且父标签存在固定宽度 */
+
+.txt-cuts {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /*设置p元素最大4行，父元素需填写宽度才明显*/
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    /*因为代码环境的关系-webkit-box-orient被过滤掉了 autoprefixer 这个关键字可以免除被过滤的动作*/
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.el-menu--horizontal>.el-submenu.is-active .el-submenu__title {
+    border-bottom: none;
+}
+
+.el-badge__content.is-fixed.is-dot {
+    top: 10px;
+    right: 13px;
+}
+
+.el-badge__content.is-dot {
+    height: 10px;
+    width: 10px;
+}

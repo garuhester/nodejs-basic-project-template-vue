@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+    <link rel="stylesheet" href="/css/element.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- ------------------- -->
+    <link rel="stylesheet" href="/pages/index/index.css">
+    <!-- ------------------- -->
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <el-container>
+            <el-header class="noselect">
+                <div class="logo">
+                    <div class="title" @click="">demo</div>
+                    <div class="menu">
+                        <el-menu :default-active="'<%=result%>'" class="el-menu-demo" mode="horizontal" @select=""
+                            background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+                            <el-menu-item index="index">首页</el-menu-item>
+                            <el-menu-item index="about">关于</el-menu-item>
+                        </el-menu>
+                    </div>
+                </div>
+                <div class="user">
+                    <el-menu class="userinfo" menu-trigger="hover" class="el-menu-demo" mode="horizontal" @select=""
+                        background-color="#545c64" text-color="#fff" active-text-color="#fff">
+                        <el-submenu index="1">
+                            <template slot="title">
+                                <span class="usertxt txtHide1">admin</span>
+                            </template>
+                            <el-menu-item index="password" @click="">修改密码
+                            </el-menu-item>
+                            <el-menu-item index="loginout">退出登录</el-menu-item>
+                        </el-submenu>
+                    </el-menu>
+                    <div class="notify">
+                        <el-badge :is-dot="badgeStatus" class="item">
+                            <i class="el-icon-message" @click=""></i>
+                        </el-badge>
+                    </div>
+                </div>
+            </el-header>
+            <el-main>
+                <% include ../pages/index.html %>
+            </el-main>
+        </el-container>
+    </div>
+    <script src="/js/vue.min.js"></script>
+    <script src="/js/element.min.js"></script>
+    <!-- <script src="/js/jquery.min.js"></script> -->
+    <script src="/js/axios.min.js"></script>
+
+    <% if(result == "index"){%>
+    <script src="/pages/index/index.js"></script>
+    <%}%>
+
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
